@@ -1,11 +1,16 @@
 {
-  "name": "back",
+  "name": "zetodo",
   "version": "1.0.0",
+  "engines": {
+    "npm": "8.16.0",
+    "node": "18.18.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "migrate": "node-pg-migrate"
+    "migrate": "node-pg-migrate",
+    "build": "cd ../client && npm run build && cp -r dist ../server"
   },
   "author": "",
   "license": "ISC",
