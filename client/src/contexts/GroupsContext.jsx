@@ -6,6 +6,7 @@ export const GroupsContext = createContext();
 export function GroupsProvider({ children }) {
   const [groups, setGroups] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   const fetchAllGroups = async () => {
     const response = await zetodoApi.get("/");
@@ -52,6 +53,8 @@ export function GroupsProvider({ children }) {
     groups,
     showModal,
     setShowModal,
+    theme,
+    setTheme,
   };
 
   return <GroupsContext.Provider value={data}>{children}</GroupsContext.Provider>;
