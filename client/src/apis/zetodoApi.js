@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3006/api/v1/groups",
+  baseURL: "https://zetodo.onrender.com/api/v1/groups",
 });

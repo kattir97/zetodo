@@ -1,6 +1,4 @@
-import { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { GroupsContext } from "../../contexts/GroupsContext";
 
 function MainLayout() {
   return (
