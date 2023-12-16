@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "migrate": "node-pg-migrate",
-    "build": "cd ../client && npm run build && cp -r dist ../server"
+    "build": "cd ../client && npm run build && xcopy dist ..\\server\\dist /E /I /S"
   },
   "author": "",
   "license": "ISC",
@@ -21,5 +21,8 @@
     "node-pg-migrate": "^6.2.2",
     "nodemon": "^3.0.2",
     "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
