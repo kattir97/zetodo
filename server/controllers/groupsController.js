@@ -1,9 +1,9 @@
 const db = require("../db/index");
 
 exports.getAllGroups = async (req, res) => {
+  const user_id = req.query.userId;
   try {
-    const groups = await db.query("SELECT * FROM groups");
-    const todos = await db.query("")
+    const groups = await db.query("SELECT * FROM groups WHERE groups.user_id = $1", [user_id]);
 
     res.status(200).json({
       status: "sucess",
@@ -40,9 +40,10 @@ exports.getGroup = async (req, res) => {
 
 exports.createGroup = async (req, res) => {
   try {
-    const newGroup = await db.query("INSERT INTO groups (name) VALUES($1) returning *", [
-      req.body.name,
-    ]);
+    const newGroup = await db.query(
+      "INSERT INTO groups (name, user_id) VALUES($1, $2) returning *",
+      [req.body.name, req.body.user_id]
+    );
 
     res.status(201).json({
       status: "success",

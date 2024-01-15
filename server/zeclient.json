@@ -1,0 +1,14 @@
+{
+  "web": {
+    "client_id": "517592967997-il4d02h0b9j58j4b8sllfpmqsv260c4s.apps.googleusercontent.com",
+    "project_id": "tactical-unison-406817",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "javascript_origins": [
+      "http://localhost:3006",
+      "http://localhost:8080"
+    ]
+  }
+}
