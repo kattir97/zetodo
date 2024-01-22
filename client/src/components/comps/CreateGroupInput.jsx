@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { CiViewList } from "react-icons/ci";
 import { GroupsContext } from "../../contexts/GroupsContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function CreateGroupInput() {
   const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(true);
 
   const { createGroup } = useContext(GroupsContext);
+  const { user } = useContext(AuthContext);
 
   const createDoc = async (e) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ function CreateGroupInput() {
       setIsValid(false);
       return;
     }
-    await createGroup({ name });
+    await createGroup({ name: name, user_id: user.id });
     setName("");
   };
 
@@ -33,6 +35,7 @@ function CreateGroupInput() {
             placeholder={`Create todo group...`}
             className="w-full p-2 md:p-4 text-2xl border-none outline-none"
             value={name}
+            disabled={user ? "" : "disabled"}
             onChange={(e) => handleName(e)}
           />
           {!isValid && <p className="text-red-500 p-2 md:px-4">Group name can not be empty</p>}

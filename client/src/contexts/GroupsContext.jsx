@@ -8,8 +8,8 @@ export function GroupsProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
   const [theme, setTheme] = useState("light");
 
-  const fetchAllGroups = async () => {
-    const response = await zetodoApi.get("/");
+  const fetchAllGroups = async (userId) => {
+    const response = await zetodoApi.get("/", { params: { userId: userId } });
     setGroups(response.data.data.groups);
     return response;
   };
