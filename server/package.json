@@ -11,7 +11,7 @@
     "start": "NODE_ENV=production nodemon server.js",
     "migrate": "node-pg-migrate",
     "build-client": "cd ../client && npm install && npm run build",
-    "build": "npm run build-client && cp -R dist ../server/dist"
+    "build": "npm run build-client && xcopy dist ..\\server\\dist /E /I /S /Y"
   },
   "author": "",
   "license": "ISC",
