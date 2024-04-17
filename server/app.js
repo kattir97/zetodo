@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     // origin: "http://localhost:5173",
+    origin: "https://zetodo.onrender.com",
     credentials: true,
   })
 );
@@ -34,12 +35,6 @@ app.use(
 app.use(passport.session());
 app.use(passport.initialize());
 
-// app.use((req, res, next) => {
-//   console.log(req.session);
-//   console.log(req.user);
-//   next();
-// });
-
 const groupsRouter = require("./routes/groupsRoutes");
 const todosRouter = require("./routes/todosRoutes");
 const authRouter = require("./routes/authRoutes");
@@ -53,6 +48,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(buildPath));
 
   app.get("*", (req, res) => {
+    if (req.url.endsWith(".js")) {
+      res.setHeader("Content-Type", "application/javascript");
+    }
     res.sendFile(path.join(buildPath, "index.html"));
   });
 }
