@@ -11,6 +11,7 @@
     "start": "NODE_ENV=production nodemon server.js",
     "migrate": "node-pg-migrate",
     "build-client": "cd ../client && npm install && npm run build && cp -R dist ../server/dist",
+    "build-wind": "cd ../client && npm install && xcopy dist ..\\server\\dist /E /I /S /Y",
     "build": "npm run build-client"
   },
   "author": "",

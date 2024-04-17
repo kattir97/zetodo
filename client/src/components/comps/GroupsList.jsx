@@ -10,7 +10,9 @@ function GroupsList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchAllGroups(user.id);
+      const data = await fetchAllGroups(user.id);
+      console.log("data from groups", data);
+      console.log(user);
     };
 
     if (user) {
